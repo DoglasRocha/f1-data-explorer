@@ -1,32 +1,38 @@
 <script type="text/javascript">
-	import { onMount } from 'svelte';
+	export let data; // variable that recieves the data fetched
 
-	async function requestFromApi(apiEndpoint) {
-		let response = await fetch(apiEndpoint);
-		if (response.ok) {
-			let body = await response.json();
-			return body;
-		}
-		else {
-			return "Fail";
+	let years = JSON.stringify(data) !== '{}' ? data.MRData.SeasonTable.Seasons : undefined;
+	years = years.map(year => year.season);
+	let byDecade = [];
+
+	for (let i = 0; i < years.length / 10; i++) {
+		byDecade[i] = [];
+		for (let j = 0; j < 10; j++) {
+			if (years[i * 10 + j] === undefined) break;
+			
+			byDecade[i][j] = years[i * 10 + j];
 		}
 	}
 
-	let test, data;
-
-	onMount(async () => {
-		test = await requestFromApi("http://ergast.com/api/f1/seasons.json?limit=80");
-		data = test.MRData.SeasonTable.Seasons;
-	});
-
-	
+	console.log(byDecade);
 </script>
 
 <h1>All Seasons in F1:</h1>
-{#if data !== undefined}
-	{#each data as year}
-		<li>{year.season}</li>
+
+{#if years !== undefined}
+	{#each byDecade as decade}
+		<ul>{decade[0]}</ul>
+		{#each decade as year}
+			<li>{year}</li>
+		{/each}
 	{/each}
 {:else}
-	<p>Oops</p>
+	<p>oops</p>
 {/if}
+
+<style>
+	:global(body) {
+		padding: 0;
+		margin: 0;
+	}
+</style>
