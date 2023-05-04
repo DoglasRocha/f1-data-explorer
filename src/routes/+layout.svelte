@@ -12,7 +12,7 @@
 	
 <Container>
 	<Navbar decades={data.byDecade}/>
-	<slot/>
+		<slot></slot>
 	<Footer/>
 </Container>
 
@@ -27,5 +27,6 @@
 
 	:global(body) {
 		min-height: 100vh;
+		background-color: #1D3557
 	}
 </style>
