@@ -3,6 +3,10 @@
 
 </script>
 
+<svelte:head>
+	<title>F1 Data Explorer</title>
+</svelte:head>
+
 <h1>All Seasons in F1:</h1>
 
 <style>

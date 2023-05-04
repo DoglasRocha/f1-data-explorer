@@ -15,7 +15,7 @@
 
 	let decadeToDisplay;
 	function setShowYears(index) {
-		showYears = true;
+		showYears = decadeToDisplay === index && showYears ? false : true;
 		decadeToDisplay = index;
 	}
 
@@ -24,12 +24,14 @@
 		"position: absolute; " +
 		"top: " + navHeight + "px; " +
 		"z-index: 1; " + 
-		"display: flex; ";
+		"display: flex; " + 
+		"height: calc(100% - " + navHeight + "px); " +
+		"background-color: #E63946; ";
 	
 </script>
 
 <nav class="navbar" bind:clientHeight={navHeight}>
-	<div class="burger-button" on:click={setShowDecades}>List of Years</div>
+	<div class="burger-button" on:click={setShowDecades}>List of Years &#9660;</div>
 	<a href="/">
 		<img src={F1Logo} alt="Logo F1" class="f1-logo">
 	</a>
@@ -58,7 +60,7 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: .5rem 0;
-		background-color: grey;
+		background-color: #457B9D;
 	}
 
 	.f1-logo {
@@ -69,10 +71,12 @@
 	.mini-container {
 		display: flex; 
 		flex-direction: column;
+		border: 1px solid transparent;
+		border-right-color: #F1FAEE;
 	}
 
 	.burger-button {
-		color: #ffffff;
+		color: #F1FAEE;
 		cursor: pointer;
 		background-color: transparent;
 		transition: .4s ease all;
@@ -80,20 +84,25 @@
 		border: 1px solid transparent;
 		padding: .4rem;
 		margin-left: 1rem;
+		font-weight: 400;
 	}
 
 	.burger-button:hover {
-		background-color: #333333;
-		border-color: #ffffff;
+		color: #1D3557;
 	}
 
 	.button {
-		color: #ffffff;
-		background-color: #ff1801;
-		border: #ffffff 1px solid;
+		color: #F1FAEE;
+		background-color: transparent;
+		border: transparent 1px solid;
 		font-size: 20px;
 		padding: .5rem 2rem;
 		cursor: pointer;
 		text-decoration: none;
+		transition: .4s ease all;
+	}
+
+	.button:hover {
+		border-color: #F1FAEE transparent;
 	}
 </style>
