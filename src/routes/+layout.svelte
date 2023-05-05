@@ -2,12 +2,14 @@
 	import Navbar from "$lib/components/navbar.svelte"
 	import Container from "$lib/components/container.svelte"
 	import Footer from "$lib/components/footer.svelte"
+	import PageLogo from "$lib/img/f1-logo.svg"
 
 	export let data;
 </script>
 
 <svelte:head>
 	<title>F1 Data Explorer</title>
+	<link rel="icon" href={PageLogo}>
 </svelte:head>
 	
 <Container>
