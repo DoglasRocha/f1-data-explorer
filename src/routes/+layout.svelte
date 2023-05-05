@@ -3,8 +3,14 @@
 	import Container from "$lib/components/container.svelte"
 	import Footer from "$lib/components/footer.svelte"
 	import PageLogo from "$lib/img/f1-logo.svg"
+	import Sidebar from "$lib/components/sidebar.svelte"
 
 	export let data;
+	let navHeight, footerHeight, showSidebar = false;
+
+	const setShowSidebar = () => {
+		showSidebar = !showSidebar;
+	}
 </script>
 
 <svelte:head>
@@ -13,9 +19,12 @@
 </svelte:head>
 	
 <Container>
-	<Navbar decades={data.byDecade}/>
-		<slot></slot>
-	<Footer/>
+	<Navbar bind:clientHeight={navHeight} {setShowSidebar}/>
+	{#if showSidebar}
+		<Sidebar decades={data.byDecade} {navHeight} {footerHeight} />
+	{/if}
+	<slot></slot>
+	<Footer bind:clientHeight={footerHeight}/>
 </Container>
 
 

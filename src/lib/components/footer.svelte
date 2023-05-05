@@ -1,8 +1,10 @@
 <script>
 	import GithubLogo from "$lib/img/github-mark-white.svg";
+
+	export let clientHeight;
 </script>
 
-<footer class="footer">
+<footer class="footer" bind:clientHeight={clientHeight}>
 	<p class="text">© by Doglas Rocha</p>
 	<a href="https://github.com/DoglasRocha" target="_blank">
 		<img src={GithubLogo} alt="Logo do Github" class="logo">
