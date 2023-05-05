@@ -48,6 +48,6 @@
 	}
 
 	.text-outline {
-		-webkit-text-stroke: 0.5px #1D3557;
+		-webkit-text-stroke: 0.8px #1D3557;
 	}
 </style>
