@@ -4,5 +4,5 @@
 </script>
 
 <Wrapper>
-	
+	<h1>Dados do ano {data.year}</h1>
 </Wrapper>

@@ -13,9 +13,13 @@ export async function load({ params, fetch }) {
 	if (races) 
 		races = races.MRData.RaceTable.Races;
 	if (driverStandings) 
-		driverStandings = driverStandings.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+		driverStandings = driverStandings.MRData.StandingsTable.StandingsLists[0]
+	if (driverStandings) 
+		driverStandings = driverStandings.DriverStandings;
 	if (constructorStandings) 
-		constructorStandings = constructorStandings.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+		constructorStandings = constructorStandings.MRData.StandingsTable.StandingsLists[0]
+	if (constructorStandings)
+		constructorStandings = constructorStandings.ConstructorStandings;
 
 	return {year, races, driverStandings, constructorStandings};
 }

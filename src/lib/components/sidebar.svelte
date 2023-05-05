@@ -18,9 +18,11 @@
 		style:top={navHeight + "px"} 
 		style:height={`calc(${windowHeight}px - ${navHeight+footerHeight}px`}>
 	<div class="mini-container">
-		{#each decades as decade, index}
-			<button class="button" on:click={() => setShowYears(index)}>{decade[0]}</button>
-		{/each}
+		{#if decades !== undefined}
+			{#each decades as decade, index}
+				<button class="button" on:click={() => setShowYears(index)}>{decade[0]}</button>
+			{/each}
+		{/if}
 	</div>
 	<div class="mini-container">
 		{#if showYears}
