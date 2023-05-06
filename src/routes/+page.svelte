@@ -25,7 +25,7 @@
 	}
 
 	:global(.bg-image) {
-		background-image: url("../lib/img/main-bg.webp");
+		background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("../lib/img/main-bg.webp");
 		background-repeat: no-repeat;
 		background-size: 100% auto;
 		background-attachment: scroll;

@@ -1,12 +1,13 @@
-import requestFromApi from "$lib/js/fetch_func.js"
+import requestFromApi from "$lib/js/fetch_func.js";
 
 export async function load({ fetch }) {
-
-	try {
-		const response = await requestFromApi("https://ergast.com/api/f1/seasons.json?limit=80", fetch);
-		return response;
-	}
-	catch {
-		return undefined;
-	}
+  try {
+    const response = await requestFromApi(
+      "https://ergast.com/api/f1/seasons.json?limit=80",
+      fetch
+    );
+    return response;
+  } catch {
+    return undefined;
+  }
 }
