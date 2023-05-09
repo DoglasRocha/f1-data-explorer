@@ -20,6 +20,8 @@ export async function load({ params, fetch }) {
 		constructorStandings = constructorStandings.MRData.StandingsTable.StandingsLists[0]
 	if (constructorStandings)
 		constructorStandings = constructorStandings.ConstructorStandings;
+	else
+		constructorStandings = [];
 
 	return {year, races, driverStandings, constructorStandings};
 }
