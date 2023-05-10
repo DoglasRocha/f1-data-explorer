@@ -1,6 +1,6 @@
-<div class={"container"}>
+<main class={"container"}>
 	<slot></slot>
-</div>
+</main>
 
 <style>
 	.container {

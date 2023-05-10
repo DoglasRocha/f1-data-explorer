@@ -8,7 +8,7 @@
 	export let data;
 </script>
 
-<Wrapper class="margin">
+<Wrapper>
 	<Title text={`Dados do ano ${data.year}`} class="mb"></Title>
 	<section class="mainframe">
 		<Subtitle text="Campeonato de Pilotos"/>
@@ -26,7 +26,11 @@
 					{#each data.driverStandings as position, index}
 						<tr class={index % 2 == 0 ? "dark-bg-cell" : "light-bg-cell"}>
 							<td>{position.position}</td>
-							<td>{position.Driver.givenName} {position.Driver.familyName}</td>
+							<td> 
+								<a href={"/driver/" + position.Driver.driverId}>
+									{position.Driver.givenName} {position.Driver.familyName}
+								</a>
+							</td>
 							<td>{position.points}</td>
 							<td>{position.Constructors[0].name}</td>
 						</tr>
@@ -86,5 +90,14 @@
 
 	.dark-bg-cell {
 		background-color: #7db4b6;
+	}
+
+	a {
+		color: #1D3557;
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
 	}
 </style>

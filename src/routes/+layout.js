@@ -25,6 +25,6 @@ export async function load({ fetch }) {
 	}
 	
 	return {
-		byDecade: byDecade
+		byDecade
 	}
 }

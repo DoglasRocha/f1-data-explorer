@@ -1,18 +1,4 @@
-import requestFromApi from "$lib/js/fetch_func.js";
-
-function unwrapObject(object, error, ...attributes) {
-	attributes.forEach(attribute => {
-		if (object.length) 
-			object = object[0];
-
-		if (object[attribute])
-			object = object[attribute];
-		else 
-			return error;
-	})
-
-	return object;
-}
+import requestFromApi, { unwrapObject } from "$lib/js/fetch_func.js";
 
 export async function load({ params, fetch }) {
 	let year = params.year;

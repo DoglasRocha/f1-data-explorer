@@ -9,5 +9,6 @@
 		flex-direction: column;
 		justify-content: space-around;
 		align-items: center;
+		padding: 2rem;
 	}
 </style>
