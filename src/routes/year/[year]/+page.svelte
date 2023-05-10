@@ -1,21 +1,26 @@
 <script type="text/javascript">
 	import Wrapper from "$lib/components/wrapper.svelte";
+	import Title from "$lib/components/title.svelte";
+	import Subtitle from "$lib/components/subtitle.svelte";
+	import Text from "$lib/components/text.svelte";
+	import Table from "$lib/components/table.svelte"
+	import RaceCard from "$lib/components/race_card.svelte";
 	export let data;
 </script>
 
 <Wrapper class="margin">
-	<h1 class="text title">Dados do ano {data.year}</h1>
+	<Title text={`Dados do ano ${data.year}`} class="mb"></Title>
 	<section class="mainframe">
-		<div>
-			<h2 class="text subtitle">Campeonato de Pilotos</h2>
-			<table class="table">
+		<Subtitle text="Campeonato de Pilotos"/>
+		<Subtitle text="Campeonato de Construtores"/>
+		<Subtitle text="Corridas"/>
+		<article>
+			<Table>
 				<thead>
-					<tr>
-						<th>Posição</th>
-						<th>Nome</th>
-						<th>Pontos</th>
-						<th>Equipe</th>
-					</tr>
+					<th>Posição</th>
+					<th>Nome</th>
+					<th>Pontos</th>
+					<th>Equipe</th>
 				</thead>
 				<tbody>
 					{#each data.driverStandings as position, index}
@@ -27,41 +32,35 @@
 						</tr>
 					{/each}
 				</tbody>
-			</table>
-		</div>
-		<div>
-			<h2 class="text subtitle">Campeonato de Construtores</h2>
+			</Table>
+		</article>
+		<article>
 			{#if data.constructorStandings.length}
-			<table class="table">
-				<thead>
-					<tr>
+				<Table>
+					<thead>
 						<th>Posição</th>
 						<th>Nome</th>
 						<th>Pontos</th>
-					</tr>
-				</thead>
-				<tbody>
-					{#each data.constructorStandings as position, index}
-						<tr class={index % 2 == 0 ? "dark-bg-cell" : "light-bg-cell"}>
-							<td>{position.position}</td>
-							<td>{position.Constructor.name}</td>
-							<td>{position.points}</td>
-						</tr>
-					{/each}
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						{#each data.constructorStandings as position, index}
+							<tr class={index % 2 == 0 ? "dark-bg-cell" : "light-bg-cell"}>
+								<td>{position.position}</td>
+								<td>{position.Constructor.name}</td>
+								<td>{position.points}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</Table>
 			{:else}
-				<p class="text">Não há dados disponíveis</p>
+				<Text>Não há dados disponíveis</Text>
 			{/if}
-		</div>
-		<div>
-			<h2 class="text subtitle">Corridas</h2>
-			<ul>
-				{#each data.races as race}
-				<li>{race.raceName}</li>
-				{/each}	
-			</ul>
-		</div>
+		</article>
+		<article>
+			{#each data.races as race}
+				<RaceCard raceProps={race}></RaceCard>
+			{/each}	
+		</article>
 	</section>
 </Wrapper>
 
@@ -69,6 +68,7 @@
 	.mainframe {
 		display: grid;
 		grid-template-columns: 1fr 1fr 2fr;
+		grid-template-rows: auto auto;
 		grid-gap: 2rem;
 	}
 
@@ -76,32 +76,8 @@
 		margin: 2rem;
 	}
 
-	.text {
-		color: #F1FAEE;
-	}
-
-	.title {
-		font-size: 32px;
+	:global(.mb) {
 		margin-bottom: 1rem;
-	}
-
-	.subtitle {
-		font-size: 18px;
-		text-align: center;
-		margin-bottom: 1rem;
-	}
-
-	.table {
-		padding: 0.5rem;
-		border: 1px solid #F1FAEE;
-		background-color: #A8DADC;
-		border-collapse: collapse;
-	}
-
-	th, td {
-		border: 1px solid #F1FAEE;
-		padding: 0.4rem;
-		text-align: center;
 	}
 
 	.light-bg-cell {
