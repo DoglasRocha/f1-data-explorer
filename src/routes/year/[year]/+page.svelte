@@ -1,8 +1,6 @@
 <script type="text/javascript">
 	import Wrapper from "$lib/components/wrapper.svelte";
 	export let data;
-
-	$:console.log(data.races)
 </script>
 
 <Wrapper class="margin">
@@ -53,7 +51,7 @@
 				</tbody>
 			</table>
 			{:else}
-				<p>Não há dados disponíveis</p>
+				<p class="text">Não há dados disponíveis</p>
 			{/if}
 		</div>
 		<div>

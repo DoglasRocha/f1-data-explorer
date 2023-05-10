@@ -4,7 +4,7 @@ export async function load({ fetch }) {
 	let byDecade;
 
 	let data = await fetchFunc("http://ergast.com/api/f1/seasons.json?limit=80", fetch);
-	
+
 	let years;
 	if (data === undefined || JSON.stringify(data) === '{}') 
 		years = undefined;

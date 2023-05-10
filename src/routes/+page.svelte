@@ -1,20 +1,22 @@
 <script type="text/javascript">
 	import Wrapper from "$lib/components/wrapper.svelte"
+	import Title from "$lib/components/title.svelte"
+	import Text from "$lib/components/text.svelte"
 
 	export let data; // variable that recieves the data fetched
 
 </script>
 
 <Wrapper class="bg-image">
-	<h1 class="title text-outline">F1 Data Explorer</h1>
+	<Title text="F1 Data Explorer"/>
 	<div class="text-wrapper">
-		<p class="text-outline text">Hi! This project is built using the SvelteKit framework!</p>
+		<Text>Hi! This project is built using the SvelteKit framework!</Text>
 		<br>
-		<p class="text-outline text">It is a F1 Data Explorer. It is possible to view data from all F1 seasons.</p>
+		<Text>It is a F1 Data Explorer. It is possible to view data from all F1 seasons.</Text>
 		<br>
-		<p class="text-outline text">I am using the Ergast Developer API to get the data displayed in this project. You can access the API <a class="text text-outline" href="http://ergast.com/mrd/" target="_blank">here</a>.</p>
+		<Text>I am using the Ergast Developer API to get the data displayed in this project. You can access the API <a id="link" href="http://ergast.com/mrd/" target="_blank">here</a>.</Text>
 		<br>
-		<p class="text-outline text">Feel free to click in the List of Years and begin exploring!</p>
+		<Text>Feel free to click in the List of Years and begin exploring!</Text>
 	</div>
 </Wrapper>
 
@@ -32,22 +34,13 @@
 		background-position: center;
 	}
 
-	.title {
-		font-size: 40px;
-		color: #F1FAEE;
-	}
-
 	.text-wrapper {
 		width: 60%;
 	}
 
-	.text {
+	#link {
 		text-align: justify;
 		font-size: 26px;
 		color: #F1FAEE;
-	}
-
-	.text-outline {
-		-webkit-text-stroke: 0.8px #1D3557;
 	}
 </style>
