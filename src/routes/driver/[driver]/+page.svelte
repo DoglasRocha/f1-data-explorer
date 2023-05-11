@@ -6,7 +6,6 @@
 	import Table from "$lib/components/table.svelte";
 
 	export let data;
-	console.log(data);
 	let dateOfBirth = data.driverData.dateOfBirth.split('-');
 </script>
 
@@ -37,7 +36,11 @@
 							</td>
 							<td>{result.DriverStandings[0].position}</td>
 							<td>{result.DriverStandings[0].wins}</td>
-							<td>{result.DriverStandings[0].Constructors[0].name}</td>
+							<td>
+								<a href="/team/{result.DriverStandings[0].Constructors[0].constructorId}">
+									{result.DriverStandings[0].Constructors[0].name}
+								</a>
+							</td>
 						</tr>
 					{/each}
 				</tbody>

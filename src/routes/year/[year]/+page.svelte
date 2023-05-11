@@ -32,7 +32,11 @@
 								</a>
 							</td>
 							<td>{position.points}</td>
-							<td>{position.Constructors[0].name}</td>
+							<td>
+								<a href={"/team/" + position.Constructors[0].constructorId}>
+									{position.Constructors[0].name}
+								</a>
+							</td>
 						</tr>
 					{/each}
 				</tbody>
@@ -50,7 +54,11 @@
 						{#each data.constructorStandings as position, index}
 							<tr class={index % 2 == 0 ? "dark-bg-cell" : "light-bg-cell"}>
 								<td>{position.position}</td>
-								<td>{position.Constructor.name}</td>
+								<td>
+									<a href="/team/{position.Constructor.constructorId}">
+										{position.Constructor.name}
+									</a>
+								</td>
 								<td>{position.points}</td>
 							</tr>
 						{/each}
