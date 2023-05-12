@@ -40,7 +40,6 @@
 
 	#link {
 		text-align: justify;
-		font-size: 26px;
 		color: #F1FAEE;
 	}
 </style>

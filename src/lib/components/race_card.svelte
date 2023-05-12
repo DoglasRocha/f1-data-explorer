@@ -5,7 +5,9 @@
 </script>
 
 <div class="card">
-	<h3 class="card-title">{raceProps.raceName}</h3>
+	<h3 class="card-title">
+		<a class="link" href="/year/{raceProps.season}/{raceProps.round}">{raceProps.raceName}</a>
+	</h3>
 	<ul>
 		<li>Circuito: {raceProps.Circuit.circuitName}</li>
 		<li>Data: {`${date[2]}/${date[1]}/${date[0]}`}</li>
@@ -26,5 +28,9 @@
 		text-align: center;
 		font-size: 20px;
 		margin-bottom: .5rem;
+	}
+
+	.link {
+		color: #000000;
 	}
 </style>

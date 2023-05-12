@@ -1,47 +1,68 @@
 <script type="text/javascript">
+	import Wrapper from "$lib/components/wrapper.svelte";
 	import Title from "$lib/components/title.svelte";
 	import Subtitle from "$lib/components/subtitle.svelte";
 	import Text from "$lib/components/text.svelte";
-	import Wrapper from "$lib/components/wrapper.svelte";
 	import Table from "$lib/components/table.svelte";
 	import Grid from "$lib/components/grid.svelte";
 
 	export let data;
-	let dateOfBirth = data.driverData.dateOfBirth.split('-');
+	let results = data.result;
+	let date = data.result.date.split('-');
+	date = `${date[2]}/${date[1]}/${date[0]}`;
 </script>
 
+
 <Wrapper>
-	<Title class="mb-1" text="{data.driverData.givenName} {data.driverData.familyName}"/>
+	<Title text="{results.raceName}"/>
 	<Grid>
 		<Subtitle text="Informações"/>
 		<Subtitle text="Resultados"/>
 		<section>
 			<ul>
-				<Text><li>Data de Nascimento: {`${dateOfBirth[2]}/${dateOfBirth[1]}/${dateOfBirth[0]}`}</li></Text>
-				<Text><li>Nacionalidade: {data.driverData.nationality}</li></Text>
+				<Text>
+					<li>Data: {date}</li>
+				</Text>
+				<Text>
+					<li>Nome do circuito: {results.Circuit.circuitName}</li>
+				</Text>
+				<Text>
+					<li>Rodada: {results.round}</li>
+				</Text>
 			</ul>
 		</section>
 		<section>
 			<Table>
 				<thead>
-					<th>Ano</th>
 					<th>Posição</th>
-					<th>Vitórias</th>
+					<th>Piloto</th>
 					<th>Equipe</th>
+					<th>Posição no Grid</th>
+					<th>Status</th>
+					<th>Tempo</th>
 				</thead>
 				<tbody>
-					{#each data.results as result, index}
+					{#each results.Results as result, index}
 						<tr class={index % 2 == 0 ? "dark-bg-cell" : "light-bg-cell"}>
+							<td>{result.position}</td>
 							<td>
-								<a href="/year/{result.season}">{result.season}</a>
-							</td>
-							<td>{result.DriverStandings[0].position}</td>
-							<td>{result.DriverStandings[0].wins}</td>
-							<td>
-								<a href="/team/{result.DriverStandings[0].Constructors[0].constructorId}">
-									{result.DriverStandings[0].Constructors[0].name}
+								<a href="/driver/{result.Driver.driverId}">
+									{result.Driver.givenName} {result.Driver.familyName}
 								</a>
 							</td>
+							<td>
+								<a href="/team/{result.Constructor.constructorId}">
+									{result.Constructor.name}
+								</a>
+							</td>
+							<td>{result.grid}</td>
+							<td>{result.status}</td>
+							{#if result.Time}
+								<td>{result.Time.time}</td>
+							{:else}
+								<td></td>
+							{/if}
+
 						</tr>
 					{/each}
 				</tbody>
