@@ -1,16 +1,16 @@
 <script>
-	import F1Logo from "$lib/img/f1-logo.svg"
-	import fetchFunc from "$lib/js/fetch_func.js"
+	import F1Logo from "../img/f1-logo.svg"
 
+	export let changeState;
 	export let setShowSidebar;
 	export let clientHeight;
 </script>
 
 <nav class="navbar" bind:clientHeight={clientHeight}>
 	<div class="burger-button" on:click={setShowSidebar}>List of Years &#9660;</div>
-	<a href="/">
+	<button on:click={() => changeState("index")} class="logo-button">
 		<img src={F1Logo} alt="Logo F1" class="f1-logo">
-	</a>
+	</button>
 </nav>
 
 <style>
@@ -41,5 +41,11 @@
 
 	.burger-button:hover {
 		color: #1D3557;
+	}
+
+	.logo-button {
+		background: transparent;
+		border: 0;
+		cursor: pointer;
 	}
 </style>

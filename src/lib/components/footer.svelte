@@ -1,5 +1,5 @@
 <script>
-	import GithubLogo from "$lib/img/github-mark-white.svg";
+	import GithubLogo from "../img/github-mark-white.svg";
 
 	export let clientHeight;
 </script>
