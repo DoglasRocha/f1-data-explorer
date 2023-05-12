@@ -1,12 +1,18 @@
 <script>
 	export let decades;
 	export let navHeight, footerHeight;
+	export let changeState, changeDataObject;
 	let windowHeight;
 	let showYears = false, decadeToDisplay = undefined;
 
 	const setShowYears = (index) => {
 		showYears = decadeToDisplay === index && showYears ? false : true;
 		decadeToDisplay = index;
+	}
+
+	const changeThings = (year) => {
+		changeDataObject("year", year);
+		changeState("year");
 	}
 
 	$: windowHeight = document.body.scrollHeight;
@@ -27,7 +33,7 @@
 	<div class="mini-container">
 		{#if showYears}
 			{#each decades[decadeToDisplay] as year}
-				<a class="button" href={"/year/" + year}>{year}</a>
+				<button class="button" on:click={() => changeThings(year)}>{year}</button>
 			{/each}
 		{/if}
 	</div>

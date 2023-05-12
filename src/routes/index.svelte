@@ -1,7 +1,7 @@
 <script type="text/javascript">
-	import Wrapper from "$lib/components/wrapper.svelte"
-	import Title from "$lib/components/title.svelte"
-	import Text from "$lib/components/text.svelte"
+	import Wrapper from "../lib/components/wrapper.svelte"
+	import Title from "../lib/components/title.svelte"
+	import Text from "../lib/components/text.svelte"
 
 	export let data; // variable that recieves the data fetched
 

@@ -9,6 +9,8 @@
 	import getData from "./helpers/layout.js";
 
 	export let changeState;
+	export let changeDataObject;
+
 	let data;
 	let navHeight, footerHeight, showSidebar = false;
 
@@ -30,7 +32,7 @@
 <Container>
 	<Navbar bind:clientHeight={navHeight} {setShowSidebar} {changeState}/>
 	{#if showSidebar}
-		<Sidebar decades={data.byDecade} {navHeight} {footerHeight} />
+		<Sidebar decades={data.byDecade} {navHeight} {footerHeight} {changeState} {changeDataObject}/>
 	{/if}
 	<slot></slot>
 	<Footer bind:clientHeight={footerHeight}/>
