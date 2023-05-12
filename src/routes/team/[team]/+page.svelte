@@ -7,7 +7,6 @@
 	import Grid from "$lib/components/grid.svelte";
 
 	export let data;
-	console.log({results: data.results, teamData: data.teamData});
 </script>
 
 <Wrapper>
