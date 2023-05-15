@@ -1,9 +1,9 @@
-import requestFromApi, { unwrapObject } from "$lib/js/fetch_func.js"
+import requestFromApi, { unwrapObject } from "../../lib/js/fetch_func.js"
 
-export async function load({ params, fetch }) {
+export async function fetchDriverData(driver) {
 
 	let results = await requestFromApi(
-		`https://ergast.com/api/f1/drivers/${params.driver}/driverStandings.json`, fetch
+		`https://ergast.com/api/f1/drivers/${driver}/driverStandings.json`, fetch
 	);
 
 	results = unwrapObject(results, [], 'MRData', 'StandingsTable', 'StandingsLists');

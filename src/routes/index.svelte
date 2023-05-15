@@ -2,15 +2,12 @@
 	import Wrapper from "../lib/components/wrapper.svelte"
 	import Title from "../lib/components/title.svelte"
 	import Text from "../lib/components/text.svelte"
-
-	export let data; // variable that recieves the data fetched
-
 </script>
 
 <Wrapper class="bg-image">
 	<Title text="F1 Data Explorer"/>
 	<div class="text-wrapper">
-		<Text>Hi! This project is built using the SvelteKit framework!</Text>
+		<Text>Hi! This project was built using the Svelte Library!</Text>
 		<br>
 		<Text>It is a F1 Data Explorer. It is possible to view data from all F1 seasons.</Text>
 		<br>

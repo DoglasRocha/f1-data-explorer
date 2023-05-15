@@ -1,15 +1,12 @@
-import requestFromApi, { unwrapObject } from "$lib/js/fetch_func.js";
+import requestFromApi, { unwrapObject } from "../../lib/js/fetch_func.js";
 
-export async function load({ params, fetch }) {
-	let year = params.year;
-
+export async function fetchYearData(year) {
 	let races = await 
 		requestFromApi(`https://ergast.com/api/f1/${year}.json`, fetch);
 	let driverStandings = await 
 		requestFromApi(`https://ergast.com/api/f1/${year}/driverStandings.json?limit=100`, fetch);
 	let constructorStandings = await 
 		requestFromApi(`https://ergast.com/api/f1/${year}/constructorStandings.json`, fetch);
-
 
 	return {
 		year, 

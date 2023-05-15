@@ -1,12 +1,20 @@
 <script>
-	export let raceProps;
+	import Link from "./link.svelte";
+	export let raceProps, changeDataObject, changeState;
 
 	$: date = raceProps.date.split('-');
 </script>
 
 <div class="card">
 	<h3 class="card-title">
-		<a class="link" href="/year/{raceProps.season}/{raceProps.round}">{raceProps.raceName}</a>
+		<Link
+			to="round"
+			value={raceProps.round}
+			text={raceProps.raceName}
+			{changeDataObject}
+			{changeState}
+			class="link-color"
+		/>
 	</h3>
 	<ul>
 		<li>Circuito: {raceProps.Circuit.circuitName}</li>
@@ -30,7 +38,9 @@
 		margin-bottom: .5rem;
 	}
 
-	.link {
-		color: #000000;
+	:global(.link-color) {
+		color: #000000 !important;
+		text-decoration: underline !important;
+		font-weight: 700 !important; 
 	}
 </style>

@@ -1,9 +1,9 @@
-import requestFromApi, { unwrapObject } from "$lib/js/fetch_func.js"
+import requestFromApi, { unwrapObject } from "../../lib/js/fetch_func.js"
 
-export async function load({ params, fetch }) {
+export async function fetchTeamData(team) {
 
 	let results = await requestFromApi(
-		`https://ergast.com/api/f1/constructors/${params.team}/constructorStandings.json?limit=80`, fetch
+		`https://ergast.com/api/f1/constructors/${team}/constructorStandings.json?limit=80`, fetch
 	);
 
 	results = unwrapObject(results, [], 'MRData', 'StandingsTable', 'StandingsLists');
@@ -11,7 +11,7 @@ export async function load({ params, fetch }) {
 
 	if (results.length == 0) {
 		teamData = await requestFromApi(
-		`https://ergast.com/api/f1/constructors/${params.team}.json`, fetch
+		`https://ergast.com/api/f1/constructors/${team}.json`, fetch
 		);
 
 
