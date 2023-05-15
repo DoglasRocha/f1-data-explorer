@@ -16,7 +16,6 @@
 		let result = await fetchYearData(getDataObject()["year"]);
 		data = result;
 	});
-
 </script>
 
 <Wrapper>

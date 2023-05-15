@@ -9,11 +9,11 @@
 	<div class="text-wrapper">
 		<Text>Hi! This project was built using the Svelte Library!</Text>
 		<br>
-		<Text>It is a F1 Data Explorer. It is possible to view data from all F1 seasons.</Text>
+		<Text>It is a F1 Data Explorer. It is possible to view data from all F1 seasons in this app.</Text>
 		<br>
-		<Text>I am using the Ergast Developer API to get the data displayed in this project. You can access the API <a id="link" href="http://ergast.com/mrd/" target="_blank">here</a>.</Text>
+		<Text>I am using the Ergast Developer API to get the data that is displayed in this project. You can access the API <a id="link" href="http://ergast.com/mrd/" target="_blank">here</a>.</Text>
 		<br>
-		<Text>Feel free to click in the List of Years and begin exploring!</Text>
+		<Text>Feel free to click on the List of Years and begin exploring!</Text>
 	</div>
 </Wrapper>
 
